@@ -1,12 +1,13 @@
 ```mermaid
 flowchart TD
-  Start([Start]) --> Input[Call is_even_or_odd]
-  Input --> IsInt{Is input an integer?}
-  IsInt -- No --> Invalid[Return: Invalid input]
-  Invalid --> End([End])
-  IsInt -- Yes --> IsEven{n mod 2 == 0?}
-  IsEven -- Yes --> Even[Return: Even]
-  IsEven -- No --> Odd[Return: Odd]
-  Even --> End
-  Odd --> End
+    Start([Start])
+    Input[/Call is_even_or_odd(number)/]
+    Check{number % 2 == 0 ?}
+    Even[/Return "Even"/]
+    Odd[/Return "Odd"/]
+    End([End])
+
+    Start --> Input --> Check
+    Check -- Yes --> Even --> End
+    Check -- No --> Odd --> End
 ```
